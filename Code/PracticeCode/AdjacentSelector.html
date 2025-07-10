@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adjacent Sibling Selector Practice Assignment</title>
+  <style>
+    .container h2 + p{
+        color: purple;
+        font-size: 18px;
+    }
+
+    .content h3 + p{
+        background-color: lightgreen;
+        padding: 8px;
+    }
+    ul li + li{
+        font-weight: bold;
+        color: orange;
+    }
+
+    aside h4 + p{
+        text-align: right;
+        color: teal;
+    }
+    ul li +li + li{
+        border-left: 4px solid blue;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Section Title</h2>
+    <p>This is the first paragraph after the title.</p>
+    <p>This is another paragraph.</p>
+    <div class="content">
+      <h3>Subheading</h3>
+      <p>This paragraph follows the subheading.</p>
+      <p>Another paragraph here.</p>
+    </div>
+    <ul>
+      <li>First item</li>
+      <li>Second item</li>
+      <li>Third item</li>
+    </ul>
+    <aside>
+      <h4>Sidebar Heading</h4>
+      <p>Paragraph after sidebar heading.</p>
+    </aside>
+  </div>
+
+  <br><br>
+
+  <p style="text-align: center; color: brown; font-size: 30px; font-weight: bold;">Tasks – Adjacent Sibling Selector Based</p>
+
+1. Styling Style the paragraph after the section title: Target the element immediately following the &lt;h2> and set its text color to purple and font size to 18px. <br><br>
+
+2. Style the paragraph after the subheading: Target the element immediately following the &lt;h3> inside the .content section, and apply a light green background color with 8px padding.<br><br>
+
+3. Style the second list item: Target the &lt;li> element immediately following the first &lt;li> in the list, and set its text color to orange and font weight to bold.<br><br>
+
+4. Style the paragraph after the sidebar heading: Target the element immediately following the &lt;h4> inside the &lt;aside> section, and set its text alignment to right and color to teal.<br><br>
+
+5. Style the third list item: Target the &lt;li> element immediately following the second &lt;li> in the list, and add a 4px solid blue left border.<br><br>
+</body>
+</html>

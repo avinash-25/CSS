@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Child Selector Practice Assignment</title>
+  <style>
+    .main > p{
+        color: green;
+        font-weight: bold;
+    }
+
+    .main > ul > li{
+        padding: 10px;
+        background-color: lightyellow;
+    }
+
+    .sidebar > p{
+        background-color: lightblue;
+        text-align: center;
+    }
+
+    footer > p{
+        color: darkred;
+        font-size: 14px;
+    }
+
+    footer > span{
+        font-style: italic;
+        color: gray;
+    }
+
+
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Main Title</h1>
+    <section class="main">
+      <p>This is a direct paragraph.</p>
+      <div class="nested">
+        <p>This is a nested paragraph.</p>
+      </div>
+      <ul>
+        <li>Item 1</li>
+        <li>Item 2</li>
+      </ul>
+    </section>
+    <aside class="sidebar">
+      <p>Sidebar content here.</p>
+      <div>
+        <p>Inner sidebar content.</p>
+      </div>
+    </aside>
+    <footer>
+      <p>Footer text.</p>
+      <span>Copyright 2025</span>
+    </footer>
+  </div>
+
+
+
+<br>
+  <p style="text-align: center; color: brown; font-size: 30px; font-weight: bold;">Tasks [Child Selector]</p>
+
+
+1. Style the direct paragraphs inside the .main section by setting their text color to green and font weight to bold.<br><br>
+
+2. Style the direct list items inside the unordered list (ul) within the .main section by applying a light yellow background and 10px padding.<br><br>
+
+3. Style the direct paragraph inside the .sidebar section by setting its background color to light blue and aligning the text to the center.<br><br>
+
+4. Style the direct paragraph inside the &lt;footer> by setting the text color to dark red and the font size to 14px.<br><br>
+
+5. Style the direct &lt;span> element inside the &lt;footer> by applying italic font style and gray text color.
+<br><br><br>
+</body>
+</html>

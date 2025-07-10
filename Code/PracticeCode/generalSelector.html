@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>General Sibling Selector Practice Assignment</title>
+  <style>
+    .container h2 ~ p{
+      font-style: italic;
+      color: indigo;
+    }
+    
+    .section h3 ~ p{
+      background-color: lightcoral;
+      padding: 6px;
+    }
+
+    /* ul li:first-child ~ li  use this for more accuracy*/
+    .container li ~ li{ 
+      font-size: 16px;
+      color: darkgreen;
+    }
+
+    .container aside h4 ~p{
+      color: maroon;
+      text-align: justify;
+    }
+
+    .container li + li ~ li{
+      border-bottom: dotted 2px gray;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Main Heading</h2>
+    <p>First paragraph after heading.</p>
+    <p>Second paragraph.</p>
+    <div class="section">
+      <h3>Subheading</h3>
+      <p>First paragraph after subheading.</p>
+      <p>Second paragraph after subheading.</p>
+      <p>Third paragraph after subheading.</p>
+    </div>
+    <ul>
+      <li>First item</li>
+      <li>Second item</li>
+      <li>Third item</li>
+      <li>Fourth item</li>
+    </ul>
+    <aside>
+      <h4>Sidebar Title</h4>
+      <p>First sidebar paragraph.</p>
+      <p>Second sidebar paragraph.</p>
+    </aside>
+  </div>
+<br>
+<p style="text-align: center; color: brown; font-size: 30px; font-weight: bold;">Tasks – General Sibling Selector Based</p>
+
+1. Styling Style all paragraphs after the main heading:     Target all &lt;p> elements that are siblings of the &lt;h2> and set their text color to indigo and font style to italic. <br><br>
+
+2. Style all paragraphs after the subheading:
+    Target all &lt;p> elements that are siblings of the &lt;h3> inside the .section class, and apply a light coral background color with 6px padding.<br><br>
+
+3. Style all list items after the first item:
+    Target all &lt;li> elements that are siblings of the first &lt;li> in the list, and set their text color to dark green and font size to 16px.<br><br>
+
+4. Style all paragraphs after the sidebar title:
+    Target all &lt;p> elements that are siblings of the &lt;h4> inside the &lt;aside> element, and set their text alignment to justify and color to maroon.<br><br>
+
+5. Style all list items after the second item:
+    Target all &lt;li> elements that are siblings of the second &lt;li> in the list, and apply a 2px dotted gray border at the bottom.<br><br><br><br>
+</body>
+</html>
