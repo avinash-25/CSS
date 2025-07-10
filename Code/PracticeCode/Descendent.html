@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Descendant Selector Practice Assignment</title>
+  <style>
+    .intro p{
+        font-size: 16px;
+        color: hwb(240 2% 5%);
+    }
+
+    .content li{
+        background-color: lightgray;
+        padding: 5px;
+    }
+
+    .highlight p{
+        background-color: yellow;
+        border: 1px solid black;
+    }
+
+    footer p{
+        font-style: italic;
+        color: gray;
+    }
+
+    footer span{
+        font-weight: bold;
+        color: darkblue;
+    }
+
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome to the CSS Descendant Selector Practice</h1>
+    <section class="intro">
+      <p>This is an introductory paragraph.</p>
+      <p>Another paragraph inside the intro section.</p>
+      <div class="highlight">
+        <p>This paragraph is inside a highlight div.</p>
+      </div>
+    </section>
+    <article class="content">
+      <h2>Main Content</h2>
+      <p>This is a paragraph in the article.</p>
+      <ul>
+        <li>List item 1</li>
+        <li>List item 2</li>
+        <li>List item 3</li>
+      </ul>
+      <div class="note">
+        <p>This is a note paragraph.</p>
+      </div>
+    </article>
+    <footer>
+      <p>Footer text here.</p>
+      <span>Contact: example@email.com</span>
+    </footer>
+  </div>
+
+
+
+
+
+     <br><br> *****************************************************************************************************************************************************<br><br>
+     <p style="text-align: center; color: brown; font-weight: bolder; font-size: 30px;">TASK</p> <br><br><br>
+1. Style paragraphs in the intro section:
+Target all &lt;p> elements inside the .intro section and set their text color to blue and font size to 16px.<br><br>
+2. Style list items in the article:
+Target all &lt;li> elements inside the .content article and apply a background-color of lightgray and padding of 5px.<br><br>
+3. Style paragraphs in the highlight div:
+Target &lt;p> elements inside the .highlight div and set their background color to yellow and add a 1px solid black border.<br><br>
+4. Style the footer text:
+Target the &lt;p> element inside the &lt;footer> and set its text color to gray and font style to italic.<br><br>
+5. Style spans in the footer:
+Target the &lt;span> element inside the &lt;footer> and set its font weight to bold and text color to darkblue.
+Guidelines
+<br><br><br><br>
+</body>
+</html>

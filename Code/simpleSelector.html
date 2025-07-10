@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple selector</title>
+    <link rel="stylesheet" href="simpleselector.css">
+</head>
+<body>
+
+    <h1>Heading Tag -1</h1>
+    <h2>Heading Tag -2</h2>
+    <p>Paragraph -1</p>
+    <p>Paragraph -2</p>
+    <p>Paragraph -3</p>
+
+    <button>Button -1</button>
+    <button> Button -2</button>
+
+    <br><br><br>
+
+    <div id="main-box" >Div With main-box id</div>
+
+
+    <h1>My Product</h1>
+
+    <div id="product-box">
+    <img src="Assets/Headphone.jpg" alt="Headphone Image">
+    <h2 class="title">Wireless Headphones</h2>
+    <p class="price">₹1499</p>
+    <p class="desc">Clear sound, lightweight, Bluetooth 5.0</p>
+    <button class="buy-btn">Buy Now</button>
+    </div>
+
+
+
+
+
+<!-- main1, span1 ---- red
+main2, section2, span-2 ---- deepskyblue -->
+
+    <!-- <main>Main Tag-1</main>
+    <main>Main Tag-2</main>
+    <span>Span Tag-1</span>
+    <section>Section Tag-1</section>    
+    <span>Span Tag-2</span>
+    <p>Paragraph Tag</p>
+    <section>Section Tag-2</section>     -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <br><br><br><br><br><br><br>
+    <h3>Class Notes: CSS Selectors</h3>
+<ul>
+    <li>Selector is used to target specific HTML elements to apply CSS styling.</li>
+    <li><strong>Syntax:</strong></li>
+    <pre>selector { property: value; }</pre>
+    <li><strong>Property:</strong> The CSS property that you want to apply on the targeted HTML element.</li>
+</ul>
+
+<p><strong>Types of Selectors:</strong></p>
+<ol>
+    <li><strong> Simple Selectors:</strong> Used to select elements based on basic criteria like name, id, class, etc.</li><br>
+    <ol type="i">
+        <li><strong>Element/Tag Selector:</strong> Selects all elements of a specific type. <br>Example: <code>p { color: red; }</code></li><br>
+        <li><strong>ID Selector (#):</strong> Selects an element with a specific id. It has higher priority than class. <br>Example: <code>#header { font-size: 20px; }</code></li><br>
+        <li><strong>Class Selector (.):</strong> Selects all elements with a specific class. <br>Example: <code>.<br>menu { background-color: yellow; }</code></li><br>
+        <li><strong>Universal Selector (*):</strong> Selects all elements on the page. <br>Example: <code>* { margin: 0; }</code></li><br>
+        <li><strong>Grouping Selector (,):</strong> Applies same style to multiple selectors. <br>Example: <code>h1, h2, p { font-family: Arial; }</code></li>
+    </ol><br>
+
+    <li><strong> Combinator Selectors:</strong> Used to define relationships between elements.</li><br>
+    <ol type="i">
+        <li><strong>Child Selector (>):</strong> Selects only direct children. <br>Example: <code>div > p</code>(selects only <code>p</code> elements that are direct children of <code>div</code>)</li><br>
+        <li><strong>Descendant Selector (space):</strong> Selects all descendants. <br>Example: <code>div p</code> (selects all <code>p</code> elements inside <code>div</code>, no matter how deep)</li><br>
+        <li><strong>Adjacent Sibling Selector (+):</strong> Selects the element immediately after another. <br>Example: <code>h1 + p</code></li><br>
+        <li><strong>General Sibling Selector (~):</strong> Selects all siblings after the specified element. <br>Example: <code>h1 ~ p</code></li>
+    </ol><br>
+
+    <li><strong> Pseudo-Class Selectors (:)</strong> - Used to define the special state of an element.</li><br>
+    <ol type="i">
+        <li><code>:link</code> – Unvisited link</li>
+        <li><code>:visited</code> – Visited link</li>
+        <li><code>:active</code> – Link when it is being clicked</li>
+        <li><code>:focus</code> – Element when it gets focus (like input box)</li>
+        <li><code>:hover</code> – Element when mouse is over it</li>
+        <li><code>:first-child</code> – Selects the first child of a parent</li>
+        <li><code>:last-child</code> – Selects the last child of a parent</li>
+        <li><code>:nth-child(n)</code> – Selects the nth child of a parent</li>
+        <li><code>:nth-last-child(n)</code> – Selects the nth child from end</li>
+        <li><code>:first-of-type</code> – First of its type among siblings</li>
+        <li><code>:last-of-type</code> – Last of its type among siblings</li>
+        <li><code>:nth-of-type(n)</code> – nth element of its type</li>
+        <li><code>:nth-last-of-type(n)</code> – nth from end of its type</li><br>
+        <li><code>:is()</code> – Selects if element matches any of given selectors. <br>Example: <code>:is(h1, h2) { color: red; }</code></li><br>
+        <li><code>:has()</code> – Selects if an element contains a certain child (Not supported in all browsers yet).</li><br>
+        <li><code>:where()</code> – Similar to <code>:is()</code>, but has no specificity.</li><br>
+        <li><code>:not()</code> – Selects everything except the specified selector. <br>Example: <code>div:not(.active)</code></li>
+    </ol><br>
+
+    <li><strong> Pseudo-Element Selectors (::)</strong> - Used to style specific parts of elements.</li><br>
+    <ol type="i">
+        <li><code>::first-letter</code> – Styles the first letter of a text</li>
+        <li><code>::first-line</code> – Styles the first line of a text</li>
+        <li><code>::selection</code> – Styles the part of an element that is selected</li>
+        <li><code>::marker</code> – Styles the marker of list items (like bullet)</li>
+        <li><code>::before</code> – Inserts content before the element</li>
+        <li><code>::after</code> – Inserts content after the element</li>
+        <li><code>::placeholder</code> – Styles the placeholder text inside form inputs</li>
+    </ol><br>
+
+    <li><strong> Attribute Selectors:</strong> Used to select elements with specific attributes.</li><br>
+    <ol type="i">
+        <li><code>input[type]</code> – Selects input elements with any <code>type</code> attribute</li>
+        <li><code>input[type="text"]</code> – Selects input elements with <code>type="text"</code></li>
+        <li><code>a[href^="https"]</code> – Selects elements where href starts with "https"</li>
+        <li><code>a[href$=".pdf"]</code> – Selects elements where href ends with ".pdf"</li><br>
+        <li><code>[title~="flower"]</code> – Selects elements whose title contains word "flower"</li><br>
+        <li><code>[class*="button"]</code> – Selects elements whose class contains "button" anywhere</li>
+    </ol>
+</ol>
+
+</body>
+</html>
+

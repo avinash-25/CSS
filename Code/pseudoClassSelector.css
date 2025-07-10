@@ -1,0 +1,43 @@
+/* main > :first-child{
+    color: yellow;
+}
+
+main > :last-child{
+    color: blue;
+}
+
+main > :nth-child(3){
+    color: blueviolet;
+}
+
+main > :nth-last-child(2){
+    color: chartreuse;
+} */
+
+/*
+! first-of-type
+! last-of-type
+! 
+! nth-last-of-type 
+*/
+
+main > p:first-of-type{
+    color: orange;
+}
+
+main > div:first-of-type{
+    color: orange;
+}
+
+main > span:first-of-type{
+    color: orange;
+}
+
+
+main > p:nth-of-type(2){
+    color: orchid;
+}
+
+main > p:nth-last-of-type(1){
+    color: peru;
+}

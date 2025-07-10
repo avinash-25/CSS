@@ -1,0 +1,56 @@
+/* style.css */
+
+/* ----------- SIMPLE SELECTORS ----------- */
+
+/* 1. Element selector */
+h1 {
+  color: navy;
+}
+
+/* 2. Class selector */
+.highlight {
+  background-color: yellow;
+}
+
+/* 3. ID selector */
+#unique {
+  border: 2px solid red;
+}
+
+/* 4. Universal selector */
+* {
+  font-family: sans-serif;
+}
+
+/* 5. Group selector */
+h1, p {
+  margin: 10px 0;
+}
+
+/* ----------- COMBINATOR SELECTORS ----------- */
+
+/* 1. Descendant selector (space) */
+.container p {
+  color: green;
+}
+
+/* 2. Child selector ( > ) */
+.container > .box {
+  background-color: lightblue;
+}
+
+/* 3. Adjacent sibling selector ( + ) */
+.highlight + .box {
+  padding: 10px;
+  border: 1px solid blue;
+}
+
+/* 4. General sibling selector ( ~ ) */
+.highlight ~ ul {
+  color: red;
+}
+
+footer{
+    color: whitesmoke;
+    background: linear-gradient(red, blue);
+}
