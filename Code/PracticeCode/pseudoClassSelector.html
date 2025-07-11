@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Pseudo-Class Selector Practice</title>
+    <style>
+      a:link {
+        color: blue;
+        text-decoration: none;
+      }
+
+      a:visited {
+        color: purple;
+      }
+
+      a:hover {
+        color: #ff4500;
+        text-decoration: underline;
+        transform: scale(1.1);
+        transition: all 0.3s ease;
+      }
+
+      a:active {
+        color: green;
+      }
+
+      input:focus {
+        border: 2px solid orange;
+        background-color: lightyellow;
+      }
+
+      form {
+        padding: 20px;
+        border: 2px solid transparent;
+        transition: border 0.3s ease;
+      }
+
+      form:focus-within {
+        border: 2px solid #1e90ff;
+      }
+
+      input:required {
+        border: 1px solid red;
+      }
+      input:disabled {
+        background-color: gray;
+        opacity: 0.9;
+      }
+      input::placeholder {
+        color: lightcoral;
+      }
+
+      input:valid {
+        border: 1px solid green;
+      }
+
+      input:invalid {
+        border: 1px solid red;
+      }
+
+      section > p:first-child {
+        font-weight: bold;
+      }
+
+      section > p:last-child {
+        font-style: italic;
+        background-color: grey;
+      }
+
+      section > p:nth-child(2) {
+        background-color: blue;
+      }
+
+      section > p:nth-last-child(2) {
+        background-color: green;
+      }
+
+      ul > li:first-of-type {
+        border: 1px solid red;
+      }
+
+      ul > li:nth-child(odd) {
+        background-color: lightblue;
+      }
+
+      ul > li:nth-child(even) {
+        background-color: lightgoldenrodyellow;
+      }
+
+      tr,th{
+        padding: 10px;
+        align-content: center;
+      }
+
+      table > tbody > tr:nth-child(odd) {
+        background-color: lightblue;
+      }
+
+      table > tbody > tr:nth-child(even){
+        background-color: lightgreen;
+      }
+
+      table > tbody > tr:nth-of-type(2){
+        font-weight: bold;
+      }
+
+      section > :where(p:first-child) strong{
+        color: red;  
+      }
+
+      a:not(.external){
+        text-decoration: underline;
+        color: teal;
+      }
+
+      button:enabled{
+        background-color: green;
+        color: white;
+        cursor: pointer;
+      }
+
+      button:disabled{
+        background-color: grey;
+        cursor: not-allowed;
+      }
+
+      button:hover{
+        filter: brightness(1.3);
+      }
+
+      form > textarea:placeholder-shown{
+        background-color: #ffe5e5;
+        border: 2px dashed #ccc;
+      }
+
+      p:not(:first-child){
+        font-size: smaller;
+        border-left: 3px solid red;
+      }
+
+      table > tbody > tr:nth-of-type(2){
+        background-color: lightyellow;
+        text-align: center;
+      }
+
+      table > tbody > tr:nth-last-of-type(1){
+        font-size: smaller;
+        border: 2px solid blue;
+        text-transform: uppercase;
+      }
+
+      a:hover:not(:visited){
+        background-color: yellow;
+      }
+
+      input:focus:required:valid{
+        border: 2px solid green;
+        box-shadow: 0 0 6px green;
+        background-image: url('/Assets/checkmark.png');
+        background-repeat: no-repeat;
+        background-position: right center;
+        background-size: 15px 15px;
+        padding-right: 40px;
+      }
+
+      input:focus:required:invalid{
+        border: 2px solid red;
+        box-shadow: 0 0 6px red;
+        background-image: url('/Assets/xmark.png');
+        background-repeat: no-repeat;
+        background-position: right center;
+        background-size: 15px 15px;
+        padding-right: 40px;
+      }
+
+
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#contact" class="external">Contact</a>
+    </nav>
+
+    <form>
+      Name: <input type="text" placeholder="Name" required /><br /><br />
+      Email: <input type="email" placeholder="Email" required /><br /><br />
+      Country: <input type="text" placeholder="Disabled" disabled /><br /><br />
+      Message: <textarea placeholder="Message"></textarea><br /><br />
+      <button type="submit">Submit</button><br />
+    </form>
+
+    <section>
+      <p>First paragraph with <strong>bold text</strong>.</p>
+      <p> Second paragraph.</p>
+      <p> Third paragraph.</p>
+      <p> Fourth paragraph.</p>
+    </section>
+
+    <ul>
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+      <li>Item 4</li>
+      <li>Item 5</li>
+      <li>Item 6</li>
+    </ul>
+
+    <table border="1">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Age</th>
+          <th>City</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Rahul</td>
+          <td>25</td>
+          <td>Delhi</td>
+        </tr>
+        <tr>
+          <td>Anita</td>
+          <td>30</td>
+          <td>Mumbai</td>
+        </tr>
+        <tr>
+          <td>Suresh</td>
+          <td>28</td>
+          <td>Bangalore</td>
+        </tr>
+        <tr>
+          <td>Priya</td>
+          <td>22</td>
+          <td>Chennai</td>
+        </tr>
+        <tr>
+          <td>Amit</td>
+          <td>35</td>
+          <td>Kolkata</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <br /><br /><br />
+
+    <p
+      style="
+        text-align: center;
+        color: brown;
+        font-weight: bolder;
+        font-size: 30px;
+      "
+    >
+      CSS Pseudo-Class Selector Practice Questions
+    </p>
+    <ol>
+      <li>
+        <strong>Link Pseudo-Classes</strong>
+        <ol>
+          <li>Create a navigation menu with 4 links.</li>
+          <li>
+            Style unvisited links (<code>:link</code>) with a blue color and no
+            underline.
+          </li>
+          <li>
+            Style visited links (<code>:visited</code>) with a purple color.
+          </li>
+          <li>
+            On hover (<code>:hover</code>), add a red underline and a slight
+            scale increase using <code>transform: scale(1.1)</code> with a
+            smooth transition.
+          </li>
+          <li>
+            When clicked (<code>:active</code>), change the link color to green.
+          </li>
+        </ol>
+      </li>
+
+      <li>
+        <strong>Focus and Focus-Within</strong>
+        <ol>
+          <li>Build a form with 2 text inputs and a submit button.</li>
+          <li>
+            Style focused inputs (<code>:focus</code>) with a 2px orange outline
+            and a light yellow background.
+          </li>
+          <li>
+            Apply a subtle blue border to the entire form when any input is
+            focused using <code>:focus-within</code>.
+          </li>
+        </ol>
+      </li>
+
+      <li>
+        <strong>Form-Related Pseudo-Classes</strong>
+        <ol>
+          <li>
+            Create a form with a required email input and a disabled text input.
+          </li>
+          <li>
+            Style required inputs (<code>:required</code>) with a red border.
+          </li>
+          <li>
+            Style the disabled input (<code>:disabled</code>) with a gray
+            background and reduced opacity.
+          </li>
+          <li>Style valid inputs (<code>:valid</code>) with a green border.</li>
+          <li>
+            Style invalid inputs (<code>:invalid</code>) with a red border and a
+            subtle shake animation using <code>@keyframes</code>.
+          </li>
+        </ol>
+      </li>
+
+      <li>
+        <strong>Structural Pseudo-Classes (Child)</strong>
+        <ol>
+          <li>Write a section with 5 paragraphs.</li>
+          <li>
+            Style the first paragraph (<code>:first-child</code>) with bold text
+            and a larger font size.
+          </li>
+          <li>
+            Style the last paragraph (<code>:last-child</code>) with italic text
+            and a gray background.
+          </li>
+          <li>
+            Apply a blue background to the second paragraph
+            (<code>:nth-child(2)</code>).
+          </li>
+          <li>
+            Apply a green background to the second-to-last paragraph
+            (<code>:nth-last-child(2)</code>).
+          </li>
+        </ol>
+      </li>
+
+      <li>
+        <strong>Structural Pseudo-Classes (Type)</strong>
+        <ol>
+          <li>Create an unordered list with 6 items.</li>
+          <li>
+            Style the first list item (<code>:first-of-type</code>) with a red
+            border.
+          </li>
+          <li>
+            Style the last list item (<code>:last-of-type</code>) with a bold
+            font and a yellow background.
+          </li>
+          <li>
+            Apply alternating background colors using
+            <code>:nth-of-type(even)</code> and <code>:nth-of-type(odd)</code>.
+          </li>
+        </ol>
+      </li>
+
+      <li>
+        <strong>Table Pseudo-Classes</strong>
+        <ol>
+          <li>
+            Build a table with 5 rows and 3 columns (e.g., Name, Age, City).
+          </li>
+          <li>
+            Style odd-numbered rows (<code>:nth-child(odd)</code>) with a light
+            blue background.
+          </li>
+          <li>
+            Style even-numbered rows (<code>:nth-child(even)</code>) with a
+            light green background.
+          </li>
+          <li>
+            Apply bold font to the second column (<code>:nth-of-type(2)</code>).
+          </li>
+        </ol>
+      </li>
+
+      <li>
+        <strong>Content-Based Pseudo-Classes</strong>
+        <ol>
+          <li>
+            In a section with 3 paragraphs, style
+            <code>&lt;strong&gt;</code> elements within the first paragraph
+            using <code>:where(p:first-child)</code> with a red color.
+          </li>
+          <li>
+            Style all links that do not have a specific class (e.g.,
+            <code>external</code>) using <code>:not(.external)</code> with an
+            underline and teal color.
+          </li>
+        </ol>
+      </li>
+
+      <li>
+        <strong>Interactive Pseudo-Classes</strong>
+        <ol>
+          <li>Create a button.</li>
+          <li>
+            Style it when enabled (<code>:enabled</code>) with a green
+            background and white text.
+          </li>
+          <li>
+            Style it when disabled (<code>:disabled</code>) with a gray
+            background and a <code>not-allowed</code> cursor.
+          </li>
+          <li>
+            Add a hover effect (<code>:hover</code>) to the enabled button that
+            increases brightness using <code>filter: brightness(1.2)</code>.
+          </li>
+        </ol>
+      </li>
+
+      <li>
+        <strong>Negation and Empty Pseudo-Classes</strong>
+        <ol>
+          <li>Create a form with a textarea.</li>
+          <li>
+            Style an empty textarea (<code>:empty</code>) with a light red
+            background and placeholder-like border.
+          </li>
+          <li>
+            Style all paragraphs except the first one
+            (<code>:not(:first-child)</code>) with a smaller font size and a
+            left border.
+          </li>
+        </ol>
+      </li>
+
+      <li>
+        <strong>Advanced Structural Pseudo-Classes</strong>
+        <ol>
+          <li>
+            In a table with 4 columns, style the second column
+            (<code>:nth-of-type(2)</code>) with centered text and a light yellow
+            background.
+          </li>
+          <li>
+            Style the last column (<code>:nth-last-of-type(1)</code>) with
+            uppercase text and a blue border.
+          </li>
+        </ol>
+      </li>
+
+      <li>
+        <strong>Combined Pseudo-Classes (Bonus)</strong>
+        <ol>
+          <li>
+            Style unvisited navigation links on hover
+            (<code>:hover:not(:visited)</code>) with a yellow background and a
+            smooth fade-in effect.
+          </li>
+          <li>
+            Style required inputs that are both focused and valid
+            (<code>:focus:required:valid</code>) with a green glow
+            (<code>box-shadow</code>) and a checkmark background image.
+          </li>
+          <li>
+            Style even-numbered list items that are not the last item
+            (<code>:nth-of-type(even):not(:last-of-type)</code>) with a dashed
+            border.
+          </li>
+        </ol>
+      </li>
+    </ol>
+  </body>
+</html>

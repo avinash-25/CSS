@@ -21,7 +21,7 @@ main > :nth-last-child(2){
 ! nth-last-of-type 
 */
 
-main > p:first-of-type{
+/* main > p:first-of-type{
     color: orange;
 }
 
@@ -40,4 +40,50 @@ main > p:nth-of-type(2){
 
 main > p:nth-last-of-type(1){
     color: peru;
+} */
+
+
+input:hover{
+    border-radius: 3px;
+}
+
+button:hover{
+    background-color:black;
+    color: white;
+}
+
+input:focus{
+    border: 1px solid orange;
+    border-radius: 2.5px;
+    outline: none;
+
+}
+
+/* div:has(.p2){
+    color: red;
+}
+
+div:has(p){
+    color: blue;
+}
+
+main > section:has(article){
+    color: chocolate; */
+/* } */
+/* 
+section:has(article){
+    color: aquamarine;
+} */
+
+
+/* div:not(:has(span)){
+    color: blue;
+}
+
+div:not(:has(h5)){
+    color: red;
+} */
+
+div:not(:has(:is(p,span))){
+    color: red;
 }

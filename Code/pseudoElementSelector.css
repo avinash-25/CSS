@@ -1,0 +1,69 @@
+h1::first-letter{
+    font-size: 40px;
+    color: red;
+    font-style: italic;
+}
+
+div::first-line{
+    color: cadetblue;
+    font-style: italic;
+    font-size: 30px;
+}
+
+
+
+*::selection{ 
+    background-color: greenyellow;
+    color: deeppink;
+}
+
+ul > li{
+    padding: 3px;
+    font-family: 'Times New Roman';
+    color: brown;
+    width: 200px;
+}
+
+.menu{
+    background-color: lightskyblue;
+    border-radius: 20px;
+    width: 200px;
+    height: 250px;
+}
+
+li:hover{
+    cursor: pointer;
+    color: darkgreen;
+    font-size: 20px;
+}
+
+.menu:hover:massage{
+    visibility: visible;
+
+}
+
+ul > li:nth-of-type(even)::marker{
+    content: "🤩";
+}
+
+ul > li:nth-of-type(odd)::marker{
+    content: "😒";
+}
+
+ul > li:last-of-type::marker{
+    content: "😍";
+}
+
+
+h1::after{
+    content: " Ranjan";
+}
+
+h1::before{
+    content: "Mr. ";
+
+}
+
+input::placeholder{
+    color: lightgrey;
+}

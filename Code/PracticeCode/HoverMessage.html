@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    .hover-box {
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+    }
+
+    .hover-box .message {
+      visibility: hidden;
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      border-radius: 4px;
+      padding: 6px;
+      position: absolute;
+      bottom: 125%; /* show above the box */
+      left: 50%;
+      transform: translateX(-50%);
+      white-space: nowrap;
+      z-index: 1;
+    }
+
+    .hover-box:hover .message {
+      visibility: visible;
+    }
+  </style>
+</head>
+<body>
+<br><br><br>
+  <div class="hover-box">
+    Hover me
+    <div class="message">Hello! I show up on hover.</div>
+  </div>
+
+</body>
+</html>
