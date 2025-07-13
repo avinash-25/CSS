@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pseudo-Element Selector Practice</title>
+    <style>
+        nav > .nav-link::before{
+            content: '*';
+            color: red;
+            font-size: 1.2em;
+            margin-right: 5px;
+            padding: 2px;
+        }
+
+        nav > .nav-link::after{
+            content: "→";
+            font-weight: bold;
+            color: blue;
+            font-size: 1.5em;
+            margin-left: 5px;
+        }
+        a.nav-link:hover::after{
+            color: green;
+            transition: 0.3 ease;
+            
+        }
+
+        .intro > .intro-text::first-line{
+          color: teal;
+          font-weight: bold;
+          background-color: #f0f0f0;
+        }
+
+         .content > .content-text::first-letter{
+          color: red;
+          font-size: 2em;
+          margin-right: 5px;
+          float: left;
+          line-height: 0.8em;
+        }
+
+        .intro-text::selection{
+          background-color: yellow;
+          color: black;
+        }
+
+        .task-list > li::marker{
+          font-size: 1.3em;
+          content: '✅';
+        }
+
+        header > h1::after{
+          content: '🪸';
+          font-size: 50px;
+        }
+
+        header > h1::before{
+          content: '🪸';
+          font-size: 50px;
+        }
+
+        .input-form label::after{
+          content: "*";
+          color: red;
+          margin-right: 3px;
+          font-weight: bold;
+        }
+
+        .input-form > button::before{
+          content: "➤";
+          color: white;
+          font-size: 1em;
+          margin-right: 5px;
+        }
+
+        button:hover::before{
+          color: yellow;
+        }
+
+
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to the Pseudo-Element Practice</h1>
+        <nav>
+            <a href="#home" class="nav-link">Home</a>
+            <a href="#about" class="nav-link">About</a>
+            <a href="#contact" class="nav-link">Contact</a>
+        </nav>
+    </header>
+
+    <section class="intro">
+        <p class="intro-text">This is an introductory paragraph. It contains multiple lines of text to test styling. Highlight this text to see custom selection styles.</p>
+        <p class="intro-text">Another paragraph for additional styling practice.</p>
+    </section>
+
+    <section class="content">
+        <h2>Content Section</h2>
+        <p class="content-text">This paragraph has important content. Style it creatively!</p>
+        <p class="content-text">Second paragraph with more text for styling.</p>
+    </section>
+
+    <ul class="task-list">
+        <li>Task 1: Read the instructions</li>
+        <li>Task 2: Complete the CSS tasks</li>
+        <li>Task 3: Test your styles</li>
+        <li>Task 4: Review and refine</li>
+    </ul>
+
+    <form class="input-form">
+        <label for="name">Name:</label>
+        <input type="text" id="name" placeholder="Enter your name"><br><br>
+
+        <label for="email">Email :</label>
+        <input type="email" placeholder="Enter Your Email Id"><br><br>
+        <button type="submit" style="margin-left: 45px;">Submit</button>
+        <button type="reset" style="margin-left: 40px;" >Cancel</button>
+    </form>
+
+    <footer>
+        <p>Practice Assignment © 2025</p>
+    </footer>
+
+
+    <br><br>
+    <p
+      style="
+        text-align: center;
+        color: brown;
+        font-weight: bolder;
+        font-size: 30px;
+      "
+    >
+      CSS Pseudo-Element Selector Practice Questions
+    </p>
+
+    <ol>
+  <li><strong>Add Decorative Icons with <code>::before</code></strong>
+    <ul>
+      <li>Add a star icon using <code>content: '★'</code> before each <code>&lt;a&gt;</code> element with the class <code>.nav-link</code> inside <code>&lt;nav&gt;</code>.</li>
+      <li>Style the star with red color, <code>1.2em</code> font size, and <code>5px</code> right margin.</li>
+      <li>Ensure the star aligns inline with the link text.</li>
+    </ul>
+  </li>
+
+  <li><strong>Add Content with <code>::after</code></strong>
+    <ul>
+      <li>Add an arrow using <code>content: '→'</code> after each <code>&lt;a&gt;</code> in the <code>nav</code> with the <code>.nav-link</code> class.</li>
+      <li>Style the arrow with blue color, <code>1.2em</code> font size, and <code>5px</code> left margin.</li>
+      <li>On hover (<code>a.nav-link:hover::after</code>), change the arrow color to green with a <code>0.3s ease</code> transition.</li>
+    </ul>
+  </li>
+
+  <li><strong>Style First Line with <code>::first-line</code></strong>
+    <ul>
+      <li>Target each <code>&lt;p&gt;</code> in the <code>.intro</code> section (<code>.intro-text</code>).</li>
+      <li>Make the first line bold and teal colored.</li>
+      <li>Apply a subtle gray background to the first line for emphasis.</li>
+    </ul>
+  </li>
+
+  <li><strong>Style First Letter with <code>::first-letter</code></strong>
+    <ul>
+      <li>Target the first letter of each <code>&lt;p&gt;</code> in the <code>.content</code> section (<code>.content-text</code>).</li>
+      <li>Apply <code>2em</code> font size, red color, float it to the left, and add <code>5px</code> right margin.</li>
+      <li>Use <code>line-height: 0.8em</code> to create a drop-cap effect.</li>
+    </ul>
+  </li>
+
+  <li><strong>Custom Selection Styling with <code>::selection</code></strong>
+    <ul>
+      <li>Style selected text inside <code>.intro-text</code> paragraphs only.</li>
+      <li>Apply a yellow background and black text color to selected content.</li>
+    </ul>
+  </li>
+
+  <li><strong>Style List Markers with <code>::marker</code></strong>
+    <ul>
+      <li>Target <code>&lt;li&gt;</code> elements in a <code>.task-list</code> unordered list.</li>
+      <li>Style the markers with green color and <code>1.3em</code> font size.</li>
+      <li>Change the bullet to a checkmark using <code>content: '✔'</code>.</li>
+    </ul>
+  </li>
+
+  <li><strong>Add Decorative Borders with <code>::before</code> and <code>::after</code></strong>
+    <ul>
+      <li>Target the <code>&lt;h1&gt;</code> inside a <code>&lt;header&gt;</code>.</li>
+      <li>Use <code>content: ''</code> to create lines before and after the heading.</li>
+      <li>Style each as a <code>50px</code> wide, <code>2px</code> high blue line, positioned <code>10px</code> above and below the <code>&lt;h1&gt;</code>.</li>
+    </ul>
+  </li>
+
+  <li><strong>Input Field Indicators with <code>::after</code></strong>
+    <ul>
+      <li>Add a red asterisk using <code>content: '* '</code> after each <code>&lt;label&gt;</code> for required inputs in the <code>.input-form</code>.</li>
+      <li>Style it with red color, bold font weight, and <code>3px</code> right margin.</li>
+    </ul>
+  </li>
+
+  <li><strong>Button Enhancement with <code>::before</code></strong>
+    <ul>
+      <li>Add an icon using <code>content: '➤'</code> before the <code>&lt;button&gt;</code> text in the <code>.input-form</code>.</li>
+      <li>Style it with white color, <code>1em</code> font size, and <code>5px</code> right margin.</li>
+      <li>Change the icon's color to yellow on hover using <code>button:hover::before</code>.</li>
+    </ul>
+  </li>
+
+  <li><strong>Combined Pseudo-Elements (Bonus)</strong>
+    <ul>
+      <li>Target <code>&lt;p&gt;</code> elements in the <code>.content-text</code> section.</li>
+      <li>Use <code>::before</code> to add an opening quote <code>(content: '“')</code> and <code>::after</code> for the closing quote <code>(content: '”')</code>.</li>
+      <li>Style quotes with <code>1.5em</code> font size, purple color, italic style, and <code>5px</code> margin (left for <code>::before</code>, right for <code>::after</code>).</li>
+      <li>When the paragraph is hovered, change the quote colors to orange with a <code>0.3s</code> transition.</li>
+    </ul>
+  </li>
+</ol>
+
+</body>
+</html>
