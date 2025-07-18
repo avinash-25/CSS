@@ -5,15 +5,137 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Text</title>
     <style>
-        h2{
-            font-family: "FontAwesome", sans-serif;
-            color: lch(20 30 1);
-            font-size: 80px;
+        *{
+            font-family: 'Times New Roman', Times, serif;
         }
+
+        li{
+            line-height: 1.4rem;
+        }
+
+
     </style>
 </head>
 <body>
-    <h2>I am text..!!</h2>
+
+  <header>
+    <h1 class="main-title">Exploring the Beauty of Typography</h1>
+    <p class="sub-title">A guide to understanding CSS text styling in modern web design.</p>
+  </header>
+
+  <main>
+    <section class="article">
+      <h2 class="section-heading">1. Introduction</h2>
+      <p>Lorem ipsum <span class="highlight">dolor sit amet</span>, consectetur adipiscing elit. <strong>This is bold text</strong> and <em>this is italic text</em>.</p>
+
+      <h2 class="section-heading">2. Common Text Properties</h2>
+      <p class="text-sample">Try changing font-family, font-size, line-height, text-align, letter-spacing, and word-spacing in this paragraph.</p>
+
+      <h2 class="section-heading">3. Text Decoration & Transform</h2>
+      <p><a href="#" class="custom-link">Click here to read more</a> and <span class="uppercase">this text should be uppercase</span>.</p>
+
+      <h2 class="section-heading">4. Quotes and Blockquotes</h2>
+      <blockquote>
+        “Typography is the craft of endowing human language with a durable visual form.” — Robert Bringhurst
+      </blockquote>
+
+      <h2 class="section-heading">5. Lists</h2>
+      <ul class="styled-list">
+        <li>Font styling</li>
+        <li>Text alignment</li>
+        <li>Decoration & transform</li>
+      </ul>
+    </section>
+  </main>
+
+
+
+<br><br>
+  <h1>CSS Text Elements – Assignment Task List</h1>
+
+  <ol>
+    <li><strong>Font Properties</strong>
+      <ol>
+        <li>Apply different <code>font-family</code> like Arial, 'Times New Roman', etc.</li>
+        <li>Use <code>font-size</code> in px, em, rem.</li>
+        <li>Style text using <code>font-style</code>: normal, italic, oblique.</li>
+        <li>Set <code>font-weight</code>: normal, bold, 300, 700, etc.</li>
+        <li>Try <code>font-variant</code>: small-caps.</li>
+        <li>Adjust <code>line-height</code> to improve readability.</li>
+        <li>Use <code>letter-spacing</code> and <code>word-spacing</code> to space out letters/words.</li>
+      </ol>
+    </li>
+
+    <li><strong>Text Alignment & Indentation</strong>
+      <ol>
+        <li>Align text: <code>text-align</code>: left, center, right, justify.</li>
+        <li>Indent paragraph using <code>text-indent</code>.</li>
+      </ol>
+    </li>
+
+    <li><strong>Text Decoration</strong>
+      <ol>
+        <li>Underline, overline, strikethrough using <code>text-decoration</code>.</li>
+        <li>Change decoration color, style, thickness.</li>
+      </ol>
+    </li>
+
+    <li><strong>Text Transform</strong>
+      <ol>
+        <li>Use <code>text-transform</code>: uppercase, lowercase, capitalize.</li>
+      </ol>
+    </li>
+
+    <li><strong>Text Shadow</strong>
+      <ol>
+        <li>Add shadow using <code>text-shadow</code>: e.g., <code>2px 2px 5px gray</code>.</li>
+      </ol>
+    </li>
+
+    <li><strong>White Space & Wrapping</strong>
+      <ol>
+        <li>Control wrapping using <code>white-space</code>: normal, nowrap, pre.</li>
+        <li>Break long words using <code>overflow-wrap</code> and <code>word-break</code>.</li>
+      </ol>
+    </li>
+
+    <li><strong>Direction & Writing Mode</strong>
+      <ol>
+        <li>Try <code>direction: rtl</code> and <code>unicode-bidi: bidi-override</code>.</li>
+        <li>Apply <code>writing-mode: vertical-rl</code> for vertical layout.</li>
+      </ol>
+    </li>
+
+    <li><strong>List Styling</strong>
+      <ol>
+        <li>Customize list using <code>list-style-type</code>: circle, square, decimal.</li>
+        <li>Try <code>list-style-position</code>: inside, outside.</li>
+        <li>Use <code>list-style-image</code> to replace bullets with an image.</li>
+      </ol>
+    </li>
+
+    <li><strong>Quotes Styling</strong>
+      <ol>
+        <li>Use <code>blockquote</code> and <code>q</code> tags with <code>quotes</code> property.</li>
+        <li>Add custom quote marks using <code>::before</code> and <code>::after</code>.</li>
+      </ol>
+    </li>
+
+    <li><strong>Highlighting and Selection</strong>
+      <ol>
+        <li>Use <code>::selection</code> to change text and background color when selected.</li>
+      </ol>
+    </li>
+
+    <li><strong>Advanced (Bonus)</strong>
+      <ol>
+        <li>Import and use fonts from Google Fonts.</li>
+        <li>Apply <code>clamp()</code> to make font-size responsive.</li>
+        <li>Use <code>transition</code> on text color or size on hover.</li>
+        <li>Add media queries to change text styles on small screens.</li>
+      </ol>
+    </li>
+  </ol>
     
 </body>
 </html>
