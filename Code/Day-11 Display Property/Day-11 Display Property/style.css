@@ -1,0 +1,48 @@
+*,*::after,*::before{
+    box-sizing: border-box;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    width: 100vw;
+    min-height: 100vh;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#wrapper{
+    width: 1000px;
+    height:550px;
+    background-color: wheat;
+    border: 3px solid black;
+}
+
+.box{
+    width: 200px;
+    height: 200px;  
+    font-size: 40px;
+    text-align: center;
+    display: inline-block;
+}
+
+.b1{
+    background-color: violet;
+ 
+}
+
+.b2{
+    background-color: springgreen;
+    /* display: none; */
+    visibility: hidden;
+}
+
+.b3{
+    background-color: tomato;
+   
+}

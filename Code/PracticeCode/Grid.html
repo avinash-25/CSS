@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid Tracks and Grid Cells</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+            background-color: #f5f5f5;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        h2 {
+            color: #34495e;
+            border-left: 4px solid #3498db;
+            padding-left: 15px;
+            margin-top: 40px;
+        }
+        
+        .grid-demo {
+            display: grid;
+            grid-template-columns: 100px 150px 120px;
+            grid-template-rows: 80px 100px 90px;
+            gap: 10px;
+            border: 3px solid #2c3e50;
+            padding: 10px;
+            margin: 20px 0;
+            background-color: #ecf0f1;
+            position: relative;
+        }
+        
+        .grid-item {
+            background-color: #3498db;
+            border: 2px solid #2980b9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+        
+        .tracks-demo {
+            display: grid;
+            grid-template-columns: 100px 150px 120px;
+            grid-template-rows: 80px 100px 90px;
+            gap: 10px;
+            border: 3px solid #2c3e50;
+            padding: 10px;
+            margin: 20px 0;
+            background-color: #ecf0f1;
+            position: relative;
+        }
+        
+        .track-highlight {
+            position: absolute;
+            border: 3px dashed #e74c3c;
+            background-color: rgba(231, 76, 60, 0.2);
+            pointer-events: none;
+        }
+        
+        .column-track-1 {
+            left: 10px;
+            top: 10px;
+            width: 100px;
+            height: calc(100% - 20px);
+        }
+        
+        .column-track-2 {
+            left: 120px;
+            top: 10px;
+            width: 150px;
+            height: calc(100% - 20px);
+        }
+        
+        .row-track-1 {
+            left: 10px;
+            top: 10px;
+            width: calc(100% - 20px);
+            height: 80px;
+        }
+        
+        .row-track-2 {
+            left: 10px;
+            top: 100px;
+            width: calc(100% - 20px);
+            height: 100px;
+        }
+        
+        .cells-demo {
+            display: grid;
+            grid-template-columns: 100px 150px 120px;
+            grid-template-rows: 80px 100px 90px;
+            gap: 10px;
+            border: 3px solid #2c3e50;
+            padding: 10px;
+            margin: 20px 0;
+            background-color: #ecf0f1;
+        }
+        
+        .cell-highlight {
+            background-color: #f39c12;
+            border: 3px solid #e67e22;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+        
+        .cell-normal {
+            background-color: #95a5a6;
+            border: 2px solid #7f8c8d;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+        
+        .legend {
+            display: flex;
+            gap: 20px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 3px;
+        }
+        
+        .explanation {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #3498db;
+        }
+        
+        .grid-lines-demo {
+            display: grid;
+            grid-template-columns: 100px 150px 120px;
+            grid-template-rows: 80px 100px 90px;
+            gap: 10px;
+            border: 3px solid #2c3e50;
+            padding: 10px;
+            margin: 20px 0;
+            background-color: #ecf0f1;
+            position: relative;
+        }
+        
+        .grid-line {
+            position: absolute;
+            background-color: #e74c3c;
+            z-index: 10;
+        }
+        
+        .vertical-line {
+            width: 2px;
+            height: calc(100% - 20px);
+            top: 10px;
+        }
+        
+        .horizontal-line {
+            height: 2px;
+            width: calc(100% - 20px);
+            left: 10px;
+        }
+        
+        .line-1 { left: 10px; }
+        .line-2 { left: 120px; }
+        .line-3 { left: 280px; }
+        .line-4 { left: 410px; }
+        
+        .hline-1 { top: 10px; }
+        .hline-2 { top: 100px; }
+        .hline-3 { top: 210px; }
+        .hline-4 { top: 310px; }
+        
+        .toggle-buttons {
+            display: flex;
+            gap: 10px;
+            margin: 20px 0;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .toggle-btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .toggle-btn.active {
+            background-color: #3498db;
+            color: white;
+        }
+        
+        .toggle-btn:not(.active) {
+            background-color: #bdc3c7;
+            color: #2c3e50;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Grid Tracks and Grid Cells Visual Explanation</h1>
+        
+        <h2>Grid Lines</h2>
+        <div class="explanation">
+            <strong>Grid Lines:</strong> These are the horizontal and vertical lines that create the grid structure. They are numbered starting from 1.
+        </div>
+        
+        <div class="grid-lines-demo" id="gridLinesDemo">
+            <div class="grid-line vertical-line line-1"></div>
+            <div class="grid-line vertical-line line-2"></div>
+            <div class="grid-line vertical-line line-3"></div>
+            <div class="grid-line vertical-line line-4"></div>
+            <div class="grid-line horizontal-line hline-1"></div>
+            <div class="grid-line horizontal-line hline-2"></div>
+            <div class="grid-line horizontal-line hline-3"></div>
+            <div class="grid-line horizontal-line hline-4"></div>
+            <div class="grid-item">1</div>
+            <div class="grid-item">2</div>
+            <div class="grid-item">3</div>
+            <div class="grid-item">4</div>
+            <div class="grid-item">5</div>
+            <div class="grid-item">6</div>
+            <div class="grid-item">7</div>
+            <div class="grid-item">8</div>
+            <div class="grid-item">9</div>
+        </div>
+        
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-color" style="background-color: #e74c3c;"></div>
+                <span>Grid Lines</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background-color: #3498db;"></div>
+                <span>Grid Items</span>
+            </div>
+        </div>
+        
+        <h2>Interactive Demo</h2>
+        <div class="toggle-buttons">
+            <button class="toggle-btn active" onclick="showTracks()">Show Grid Tracks</button>
+            <button class="toggle-btn" onclick="showCells()">Show Grid Cells</button>
+            <button class="toggle-btn" onclick="showBoth()">Show Both</button>
+        </div>
+        
+        <div class="tracks-demo" id="demoContainer">
+            <div class="track-highlight column-track-1" id="columnTrack1" style="display: block;"></div>
+            <div class="track-highlight column-track-2" id="columnTrack2" style="display: none;"></div>
+            <div class="track-highlight row-track-1" id="rowTrack1" style="display: none;"></div>
+            <div class="track-highlight row-track-2" id="rowTrack2" style="display: none;"></div>
+            
+            <div class="grid-item" id="item1">1</div>
+            <div class="grid-item" id="item2">2</div>
+            <div class="grid-item" id="item3">3</div>
+            <div class="grid-item" id="item4">4</div>
+            <div class="grid-item" id="item5">5</div>
+            <div class="grid-item" id="item6">6</div>
+            <div class="grid-item" id="item7">7</div>
+            <div class="grid-item" id="item8">8</div>
+            <div class="grid-item" id="item9">9</div>
+        </div>
+        
+        <div class="legend" id="legend">
+            <div class="legend-item">
+                <div class="legend-color" style="background-color: rgba(231, 76, 60, 0.2); border: 2px dashed #e74c3c;"></div>
+                <span>Grid Track (Column 1)</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background-color: #3498db;"></div>
+                <span>Grid Items</span>
+            </div>
+        </div>
+        
+        <h2>Grid Tracks Explanation</h2>
+        <div class="explanation">
+            <strong>Grid Tracks:</strong> The space between any two consecutive grid lines is called a grid track. It is basically the space or the area between the lines.
+            <br><br>
+            <strong>Column Tracks:</strong> Vertical spaces between vertical grid lines
+            <br>
+            <strong>Row Tracks:</strong> Horizontal spaces between horizontal grid lines
+        </div>
+        
+        <h2>Grid Cells Explanation</h2>
+        <div class="explanation">
+            <strong>Grid Cells:</strong> Grid cells are the space present between any four intersecting grid lines. From the table analogy every table cell can be thought of as a grid cell too. It is the smallest unit in the CSS grid.
+            <br><br>
+            Each cell is formed by the intersection of one row track and one column track.
+        </div>
+    </div>
+    
+    <script>
+        let currentMode = 'tracks';
+        
+        function showTracks() {
+            currentMode = 'tracks';
+            updateActiveButton('Show Grid Tracks');
+            
+            // Hide all highlights first
+            hideAllHighlights();
+            
+            // Show first column track
+            document.getElementById('columnTrack1').style.display = 'block';
+            
+            // Update legend
+            document.getElementById('legend').innerHTML = `
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: rgba(231, 76, 60, 0.2); border: 2px dashed #e74c3c;"></div>
+                    <span>Grid Track (Column 1)</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: #3498db;"></div>
+                    <span>Grid Items</span>
+                </div>
+            `;
+            
+            // Add click listeners for tracks
+            addTrackClickListeners();
+        }
+        
+        function showCells() {
+            currentMode = 'cells';
+            updateActiveButton('Show Grid Cells');
+            
+            // Hide all highlights
+            hideAllHighlights();
+            
+            // Highlight first cell
+            document.getElementById('item1').className = 'cell-highlight';
+            
+            // Update legend
+            document.getElementById('legend').innerHTML = `
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: #f39c12;"></div>
+                    <span>Selected Grid Cell</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: #3498db;"></div>
+                    <span>Other Grid Cells</span>
+                </div>
+            `;
+            
+            // Add click listeners for cells
+            addCellClickListeners();
+        }
+        
+        function showBoth() {
+            currentMode = 'both';
+            updateActiveButton('Show Both');
+            
+            // Hide all highlights
+            hideAllHighlights();
+            
+            // Show first column and row track
+            document.getElementById('columnTrack1').style.display = 'block';
+            document.getElementById('rowTrack1').style.display = 'block';
+            
+            // Highlight intersecting cell
+            document.getElementById('item1').className = 'cell-highlight';
+            
+            // Update legend
+            document.getElementById('legend').innerHTML = `
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: rgba(231, 76, 60, 0.2); border: 2px dashed #e74c3c;"></div>
+                    <span>Grid Tracks</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: #f39c12;"></div>
+                    <span>Grid Cell (Intersection)</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: #3498db;"></div>
+                    <span>Other Grid Cells</span>
+                </div>
+            `;
+            
+            // Add click listeners for both
+            addBothClickListeners();
+        }
+        
+        function hideAllHighlights() {
+            document.getElementById('columnTrack1').style.display = 'none';
+            document.getElementById('columnTrack2').style.display = 'none';
+            document.getElementById('rowTrack1').style.display = 'none';
+            document.getElementById('rowTrack2').style.display = 'none';
+            
+            // Reset all items to normal
+            for (let i = 1; i <= 9; i++) {
+                document.getElementById('item' + i).className = 'grid-item';
+            }
+        }
+        
+        function updateActiveButton(activeText) {
+            const buttons = document.querySelectorAll('.toggle-btn');
+            buttons.forEach(btn => {
+                if (btn.textContent === activeText) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+        }
+        
+        function addTrackClickListeners() {
+            // Remove existing listeners
+            removeAllListeners();
+            
+            // Add new listeners for track demonstration
+            for (let i = 1; i <= 9; i++) {
+                document.getElementById('item' + i).addEventListener('click', function() {
+                    const col = ((i - 1) % 3) + 1;
+                    const row = Math.ceil(i / 3);
+                    
+                    hideAllHighlights();
+                    
+                    if (col === 1) {
+                        document.getElementById('columnTrack1').style.display = 'block';
+                    } else if (col === 2) {
+                        document.getElementById('columnTrack2').style.display = 'block';
+                    }
+                    
+                    document.getElementById('legend').innerHTML = `
+                        <div class="legend-item">
+                            <div class="legend-color" style="background-color: rgba(231, 76, 60, 0.2); border: 2px dashed #e74c3c;"></div>
+                            <span>Grid Track (Column ${col})</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color" style="background-color: #3498db;"></div>
+                            <span>Grid Items</span>
+                        </div>
+                    `;
+                });
+            }
+        }
+        
+        function addCellClickListeners() {
+            removeAllListeners();
+            
+            for (let i = 1; i <= 9; i++) {
+                document.getElementById('item' + i).addEventListener('click', function() {
+                    hideAllHighlights();
+                    this.className = 'cell-highlight';
+                    
+                    const col = ((i - 1) % 3) + 1;
+                    const row = Math.ceil(i / 3);
+                    
+                    document.getElementById('legend').innerHTML = `
+                        <div class="legend-item">
+                            <div class="legend-color" style="background-color: #f39c12;"></div>
+                            <span>Selected Grid Cell (Row ${row}, Column ${col})</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color" style="background-color: #3498db;"></div>
+                            <span>Other Grid Cells</span>
+                        </div>
+                    `;
+                });
+            }
+        }
+        
+        function addBothClickListeners() {
+            removeAllListeners();
+            
+            for (let i = 1; i <= 9; i++) {
+                document.getElementById('item' + i).addEventListener('click', function() {
+                    const col = ((i - 1) % 3) + 1;
+                    const row = Math.ceil(i / 3);
+                    
+                    hideAllHighlights();
+                    this.className = 'cell-highlight';
+                    
+                    if (col === 1) {
+                        document.getElementById('columnTrack1').style.display = 'block';
+                    } else if (col === 2) {
+                        document.getElementById('columnTrack2').style.display = 'block';
+                    }
+                    
+                    if (row === 1) {
+                        document.getElementById('rowTrack1').style.display = 'block';
+                    } else if (row === 2) {
+                        document.getElementById('rowTrack2').style.display = 'block';
+                    }
+                    
+                    document.getElementById('legend').innerHTML = `
+                        <div class="legend-item">
+                            <div class="legend-color" style="background-color: rgba(231, 76, 60, 0.2); border: 2px dashed #e74c3c;"></div>
+                            <span>Grid Tracks (Row ${row}, Column ${col})</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color" style="background-color: #f39c12;"></div>
+                            <span>Grid Cell (Intersection)</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color" style="background-color: #3498db;"></div>
+                            <span>Other Grid Cells</span>
+                        </div>
+                    `;
+                });
+            }
+        }
+        
+        function removeAllListeners() {
+            for (let i = 1; i <= 9; i++) {
+                const element = document.getElementById('item' + i);
+                element.replaceWith(element.cloneNode(true));
+            }
+        }
+        
+        // Initialize with tracks view
+        showTracks();
+    </script>
+</body>
+</html>
