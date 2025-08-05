@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Grid Mastery Assignment</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .assignment-section {
+            padding: 30px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .assignment-section:last-child {
+            border-bottom: none;
+        }
+
+        .assignment-title {
+            color: #2c3e50;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            border-left: 4px solid #3498db;
+            padding-left: 15px;
+        }
+
+        .instructions {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border-left: 4px solid #17a2b8;
+        }
+
+        .grid-practice {
+            min-height: 300px;
+            border: 3px dashed #ddd;
+            border-radius: 10px;
+            margin: 20px 0;
+            background: #fafafa;
+            position: relative;
+        }
+
+        .grid-practice::before {
+            content: "Your Grid Goes Here";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #999;
+            font-size: 1.2rem;
+            pointer-events: none;
+        }
+
+        .hint {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #ffc107;
+            margin: 15px 0;
+        }
+
+        .challenge {
+            background: #f8d7da;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #dc3545;
+            margin: 15px 0;
+        }
+
+        .code-example {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+            margin: 15px 0;
+        }
+
+        .grid-item {
+            background: linear-gradient(45deg, #ff9a9e, #fecfef);
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
+            font-weight: bold;
+            color: #333;
+            transition: transform 0.3s ease;
+        }
+
+        .grid-item:hover {
+            transform: scale(1.05);
+        }
+
+        /* SOLUTION EXAMPLES - UNCOMMENT TO SEE SOLUTIONS */
+        
+        /* Exercise 1 Solution */
+        .exercise1-solution {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 100px);
+            gap: 15px;
+            padding: 20px;
+        }
+
+        /* Exercise 2 Solution */
+        .exercise2-solution {
+            display: grid;
+            grid-template-columns: 200px 1fr 150px;
+            grid-template-rows: 80px 1fr 60px;
+            gap: 10px;
+            height: 400px;
+            padding: 20px;
+        }
+
+        .exercise2-solution .header-item { grid-area: 1 / 1 / 2 / 4; background: #3498db; }
+        .exercise2-solution .sidebar { grid-area: 2 / 1 / 3 / 2; background: #e74c3c; }
+        .exercise2-solution .main { grid-area: 2 / 2 / 3 / 3; background: #2ecc71; }
+        .exercise2-solution .aside { grid-area: 2 / 3 / 3 / 4; background: #f39c12; }
+        .exercise2-solution .footer-item { grid-area: 3 / 1 / 4 / 4; background: #9b59b6; }
+
+        /* Exercise 3 Solution */
+        .exercise3-solution {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(4, 100px);
+            gap: 10px;
+            padding: 20px;
+        }
+
+        .exercise3-solution .item1 { grid-area: 1 / 1 / 3 / 3; }
+        .exercise3-solution .item2 { grid-area: 1 / 3 / 2 / 5; }
+        .exercise3-solution .item3 { grid-area: 2 / 3 / 4 / 4; }
+        .exercise3-solution .item4 { grid-area: 2 / 4 / 3 / 5; }
+        .exercise3-solution .item5 { grid-area: 3 / 1 / 5 / 2; }
+        .exercise3-solution .item6 { grid-area: 3 / 2 / 4 / 3; }
+        .exercise3-solution .item7 { grid-area: 3 / 4 / 5 / 5; }
+        .exercise3-solution .item8 { grid-area: 4 / 2 / 5 / 4; }
+
+        .toggle-solution {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px 0;
+            transition: background 0.3s ease;
+        }
+
+        .toggle-solution:hover {
+            background: #218838;
+        }
+
+        .solution-hidden {
+            display: none;
+        }
+
+        .progress-tracker {
+            background: linear-gradient(135deg, #84fab0, #8fd3f4);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .progress-bar {
+            background: #e9ecef;
+            height: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+
+        .progress-fill {
+            background: linear-gradient(90deg, #ff6b6b, #ee5a24);
+            height: 100%;
+            width: 0%;
+            transition: width 0.5s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎯 CSS Grid Mastery Assignment</h1>
+            <p>Master CSS Grid through hands-on practice with progressive exercises</p>
+        </div>
+
+        <div class="progress-tracker">
+            <h3>Your Progress</h3>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <p id="progressText">0% Complete - Let's start your Grid journey!</p>
+        </div>
+
+        <!-- Exercise 1: Basic Grid -->
+        <section class="assignment-section">
+            <h2 class="assignment-title">Exercise 1: Basic 3x3 Grid</h2>
+            <div class="instructions">
+                <h4>🎯 Objective:</h4>
+                <p>Create a simple 3x3 grid with equal-sized columns and rows. Each grid item should be 100px tall.</p>
+                
+                <h4>📋 Requirements:</h4>
+                <ul>
+                    <li>Use <code>display: grid</code></li>
+                    <li>Create 3 equal columns using <code>grid-template-columns</code></li>
+                    <li>Create 3 rows of 100px each using <code>grid-template-rows</code></li>
+                    <li>Add 15px gap between grid items</li>
+                    <li>Add 9 div elements with class "grid-item" and numbers 1-9</li>
+                </ul>
+            </div>
+
+            <div class="code-example">
+/* Your CSS here */
+.exercise1 {
+    /* Add your grid properties here */
+}</div>
+
+            <div class="grid-practice" id="exercise1">
+                <!-- Add your 9 grid items here -->
+            </div>
+
+            <div class="hint">
+                <strong>💡 Hint:</strong> Use <code>repeat(3, 1fr)</code> for equal columns and <code>repeat(3, 100px)</code> for fixed-height rows.
+            </div>
+
+            <button class="toggle-solution" onclick="toggleSolution(1)">Show Solution</button>
+            <div id="solution1" class="solution-hidden">
+                <div class="exercise1-solution">
+                    <div class="grid-item">1</div>
+                    <div class="grid-item">2</div>
+                    <div class="grid-item">3</div>
+                    <div class="grid-item">4</div>
+                    <div class="grid-item">5</div>
+                    <div class="grid-item">6</div>
+                    <div class="grid-item">7</div>
+                    <div class="grid-item">8</div>
+                    <div class="grid-item">9</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Exercise 2: Layout Grid -->
+        <section class="assignment-section">
+            <h2 class="assignment-title">Exercise 2: Website Layout Grid</h2>
+            <div class="instructions">
+                <h4>🎯 Objective:</h4>
+                <p>Create a classic website layout using CSS Grid with header, sidebar, main content, aside, and footer.</p>
+                
+                <h4>📋 Requirements:</h4>
+                <ul>
+                    <li>Header spans full width (3 columns)</li>
+                    <li>Sidebar: 200px wide</li>
+                    <li>Main content: flexible width (1fr)</li>
+                    <li>Aside: 150px wide</li>
+                    <li>Footer spans full width (3 columns)</li>
+                    <li>Header: 80px height, Content area: flexible, Footer: 60px height</li>
+                    <li>Use <code>grid-area</code> property for positioning</li>
+                </ul>
+            </div>
+
+            <div class="code-example">
+/* Your CSS here */
+.exercise2 {
+    display: grid;
+    /* Define your grid template */
+}
+
+.header { /* Position header */ }
+.sidebar { /* Position sidebar */ }
+.main { /* Position main */ }
+.aside { /* Position aside */ }
+.footer { /* Position footer */ }</div>
+
+            <div class="grid-practice" id="exercise2" style="height: 400px;">
+                <!-- Add your layout elements here -->
+            </div>
+
+            <div class="hint">
+                <strong>💡 Hint:</strong> Use <code>grid-area: row-start / col-start / row-end / col-end</code> or named grid areas.
+            </div>
+
+            <button class="toggle-solution" onclick="toggleSolution(2)">Show Solution</button>
+            <div id="solution2" class="solution-hidden">
+                <div class="exercise2-solution">
+                    <div class="grid-item header-item">Header</div>
+                    <div class="grid-item sidebar">Sidebar</div>
+                    <div class="grid-item main">Main Content</div>
+                    <div class="grid-item aside">Aside</div>
+                    <div class="grid-item footer-item">Footer</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Exercise 3: Complex Grid -->
+        <section class="assignment-section">
+            <h2 class="assignment-title">Exercise 3: Complex Grid Layout</h2>
+            <div class="instructions">
+                <h4>🎯 Objective:</h4>
+                <p>Create a complex grid layout where items span multiple rows and columns in an interesting pattern.</p>
+                
+                <h4>📋 Requirements:</h4>
+                <ul>
+                    <li>4x4 grid with 100px row heights</li>
+                    <li>Item 1: spans 2x2 (top-left)</li>
+                    <li>Item 2: spans 1x2 (top-right)</li>
+                    <li>Item 3: spans 2x1 (middle-right)</li>
+                    <li>Item 4: spans 1x1 (next to item 3)</li>
+                    <li>Item 5: spans 2x1 (bottom-left vertical)</li>
+                    <li>Item 6: spans 1x1 (middle)</li>
+                    <li>Item 7: spans 2x1 (bottom-right vertical)</li>
+                    <li>Item 8: spans 1x2 (bottom-center)</li>
+                </ul>
+            </div>
+
+            <div class="challenge">
+                <strong>🔥 Challenge:</strong> This is advanced! Use <code>grid-area</code> to position each item precisely. Think about the grid lines!
+            </div>
+
+            <div class="grid-practice" id="exercise3" style="height: 450px;">
+                <!-- Add your 8 grid items here -->
+            </div>
+
+            <button class="toggle-solution" onclick="toggleSolution(3)">Show Solution</button>
+            <div id="solution3" class="solution-hidden">
+                <div class="exercise3-solution">
+                    <div class="grid-item item1">1</div>
+                    <div class="grid-item item2">2</div>
+                    <div class="grid-item item3">3</div>
+                    <div class="grid-item item4">4</div>
+                    <div class="grid-item item5">5</div>
+                    <div class="grid-item item6">6</div>
+                    <div class="grid-item item7">7</div>
+                    <div class="grid-item item8">8</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Exercise 4: Responsive Grid -->
+        <section class="assignment-section">
+            <h2 class="assignment-title">Exercise 4: Responsive Grid Challenge</h2>
+            <div class="instructions">
+                <h4>🎯 Objective:</h4>
+                <p>Create a responsive product grid that adapts to different screen sizes using CSS Grid.</p>
+                
+                <h4>📋 Requirements:</h4>
+                <ul>
+                    <li>Desktop (>768px): 4 columns</li>
+                    <li>Tablet (481-768px): 3 columns</li>
+                    <li>Mobile (≤480px): 2 columns</li>
+                    <li>Use <code>auto-fit</code> and <code>minmax()</code></li>
+                    <li>Items should have minimum width of 200px</li>
+                    <li>Add 20px gap between items</li>
+                    <li>Create 12 product cards</li>
+                </ul>
+            </div>
+
+            <div class="code-example">
+/* Your responsive CSS here */
+.exercise4 {
+    display: grid;
+    /* Use auto-fit and minmax for responsiveness */
+}
+
+@media (max-width: 768px) {
+    /* Tablet styles */
+}
+
+@media (max-width: 480px) {
+    /* Mobile styles */
+}</div>
+
+            <div class="grid-practice" id="exercise4">
+                <!-- Add your 12 product cards here -->
+            </div>
+
+            <div class="hint">
+                <strong>💡 Hint:</strong> Try <code>grid-template-columns: repeat(auto-fit, minmax(200px, 1fr))</code>
+            </div>
+        </section>
+
+        <!-- Exercise 5: Grid Areas -->
+        <section class="assignment-section">
+            <h2 class="assignment-title">Exercise 5: Named Grid Areas</h2>
+            <div class="instructions">
+                <h4>🎯 Objective:</h4>
+                <p>Create a dashboard layout using named grid areas for better code readability.</p>
+                
+                <h4>📋 Requirements:</h4>
+                <ul>
+                    <li>Use <code>grid-template-areas</code> to define layout</li>
+                    <li>Create areas: "nav", "sidebar", "content", "ads", "footer"</li>
+                    <li>Nav should span full width at top</li>
+                    <li>Sidebar, content, and ads in middle row</li>
+                    <li>Footer spans full width at bottom</li>
+                    <li>Make it visually appealing with different colors</li>
+                </ul>
+            </div>
+
+            <div class="code-example">
+/* Your named areas CSS here */
+.exercise5 {
+    display: grid;
+    grid-template-areas: 
+        "nav nav nav"
+        "sidebar content ads"
+        "footer footer footer";
+    /* Add more properties */
+}
+
+.nav { grid-area: nav; }
+/* Define other areas */</div>
+
+            <div class="grid-practice" id="exercise5">
+                <!-- Add your dashboard elements here -->
+            </div>
+
+            <div class="challenge">
+                <strong>🔥 Pro Tip:</strong> Named grid areas make your code more readable and maintainable!
+            </div>
+        </section>
+
+        <!-- Final Challenge -->
+        <section class="assignment-section">
+            <h2 class="assignment-title">🏆 Final Challenge: Creative Portfolio Grid</h2>
+            <div class="instructions">
+                <h4>🎯 Objective:</h4>
+                <p>Design your own creative portfolio grid layout combining everything you've learned!</p>
+                
+                <h4>📋 Requirements:</h4>
+                <ul>
+                    <li>Use at least 3 different CSS Grid techniques</li>
+                    <li>Include responsive design</li>
+                    <li>Create an interesting, asymmetrical layout</li>
+                    <li>Use grid-area, grid-template-areas, or manual positioning</li>
+                    <li>Add hover effects and smooth transitions</li>
+                    <li>Make it your own unique design!</li>
+                </ul>
+            </div>
+
+            <div class="challenge">
+                <strong>🎨 Creative Freedom:</strong> This is your chance to showcase your CSS Grid mastery. Be creative and experiment!
+            </div>
+
+            <div class="grid-practice" id="finalChallenge" style="min-height: 500px;">
+                <!-- Your creative portfolio grid goes here -->
+            </div>
+        </section>
+    </div>
+
+    <script>
+        let completedExercises = 0;
+        const totalExercises = 6;
+
+        function toggleSolution(exerciseNum) {
+            const solution = document.getElementById(`solution${exerciseNum}`);
+            const button = event.target;
+            
+            if (solution.classList.contains('solution-hidden')) {
+                solution.classList.remove('solution-hidden');
+                button.textContent = 'Hide Solution';
+                updateProgress();
+            } else {
+                solution.classList.add('solution-hidden');
+                button.textContent = 'Show Solution';
+            }
+        }
+
+        function updateProgress() {
+            completedExercises++;
+            const percentage = Math.min((completedExercises / totalExercises) * 100, 100);
+            document.getElementById('progressFill').style.width = percentage + '%';
+            document.getElementById('progressText').textContent = 
+                `${Math.round(percentage)}% Complete - ${percentage === 100 ? 'Congratulations! 🎉' : 'Keep going! 💪'}`;
+        }
+
+        // Add some interactive elements
+        document.addEventListener('DOMContentLoaded', function() {
+            const gridPractices = document.querySelectorAll('.grid-practice');
+            
+            gridPractices.forEach(practice => {
+                practice.addEventListener('click', function() {
+                    this.style.borderColor = '#3498db';
+                    this.style.backgroundColor = '#f8f9ff';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

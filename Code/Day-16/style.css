@@ -1,0 +1,45 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    width: 100vw;
+}
+
+section{
+    height: 100%;
+    width: 100%;
+    display: grid;
+    padding: 50px;
+    background-color: wheat;
+     /* grid-template-columns: repeat(2, 1fr); */
+    /*grid-template-rows: 200px 200px; */
+    /* grid-template-rows: minmax(200px, 1fr) minmax(300px, 1fr); */
+    grid-template-columns: repeat(auto-fit , minmax( 200px, 1fr));
+
+
+}
+
+section div{
+    font-size: 30px;
+    height: 300px;
+}
+
+section div:nth-of-type(1){
+    background-color: springgreen;
+}
+
+section div:nth-of-type(2){
+    background-color: lightcoral;
+}
+
+section div:nth-of-type(3){
+    background-color: lightseagreen;
+}
+
+section div:nth-of-type(4){
+    background-color: lime;
+}
